@@ -19,14 +19,10 @@ module.exports = (sequelize, DataType) => {
         allowNull: false,
         defaultValue: false,
       },
-    },
-    {
-      classMethod: {
-        associate: (models) => {
-          Tasks.belongsTo(models.User);
-        },
-      },
-    }
-  );
+    });
+
+    Tasks.associate = (models) => {
+      Tasks.belongsTo(models.Users, { foreignKey: { allowNull: false }, onDelete: "CASCADE"});
+    };
   return Tasks;
 };
