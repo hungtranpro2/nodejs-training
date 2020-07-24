@@ -8,7 +8,7 @@ module.exports = (app) => {
       Users.findByPk(req.user.id, {
         attributes: ["id", "name", "email"],
       })
-        .then((result) => res.json({ result }))
+        .then((result) => res.json(result))
         .catch((error) => {
           res.status(412).json({ msg: error.message });
         });
