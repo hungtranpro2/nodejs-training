@@ -4,14 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "npm run apidoc && nodemon index.js",
+    "apidoc": "apidoc -i routes/ -o public/apidoc",
     "test": "NODE_ENV=test mocha test/**/*.js"
+  },
+  "apidoc": {
+    "name": "Node Task API - Documentation",
+    "template": {
+      "forceLanguage": "en"
+    }
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@types/express": "^4.16.1",
+    "apidoc": "^0.24.0",
     "babel-register": "^6.26.0",
     "chai": "^4.2.0",
     "mocha": "^8.0.1",
